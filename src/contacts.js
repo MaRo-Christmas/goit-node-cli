@@ -1,13 +1,11 @@
-// src/contacts.js
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import crypto from "crypto";
 
-// абсолютний шлях до src/db/contacts.json (відносно цього файлу)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const contactsPath = path.join(__dirname, "db", "contacts.json"); // <-- ВАЖЛИВО
+const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 async function readContacts() {
   const raw = await fs.readFile(contactsPath, "utf-8");
@@ -19,7 +17,7 @@ async function writeContacts(list) {
 }
 
 export async function listContacts() {
-  return await readContacts(); // масив контактів
+  return await readContacts();
 }
 
 export async function getContactById(contactId) {
